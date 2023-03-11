@@ -1,12 +1,13 @@
-import styles from './SearchForm.module.scss';
-
-const SearchForm = () => {
+import styles from './SearchForm.module.scss'
+import TextInput from '../TextInput/TextInput';
+import Button from '../Button/Button';
+const SearchForm = (props) => {
     return (
         <form className={styles.searchForm}>
-            <input className={styles.input} type="text"/>
-            <button className={styles.button}>Search</button>
+          <TextInput placeholder="Search..." type="text" />
+          <Button text="Search" />
         </form>
     );
-  };
+};
 
-  export default SearchForm;
+export default SearchForm;
