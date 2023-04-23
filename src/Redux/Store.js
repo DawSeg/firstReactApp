@@ -1,6 +1,7 @@
 import { createStore } from "redux";
 import initialState from "./InitialState";
 import shortid from "shortid";
+
 //selectors
 export const getFilteredCards = (state, columnId) =>
   state.cards.filter(
@@ -8,11 +9,24 @@ export const getFilteredCards = (state, columnId) =>
       card.columnId === columnId &&
       card.title.toLowerCase().includes(state.searchString.toLowerCase())
   );
+  export const getListById = ({ lists }, listId) =>
+  lists.find((list) => list.id === listId);
+
+export const getColumnsByList = ({ columns }, listId) =>
+  columns.filter((column) => column.listId === listId);
+
+export const getAllLists = (state) => state.lists;
+
+export const getSearchString = (state) => state.searchString;
+
 
 // action creators
-export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
-export const addCard = payload => ({ type: 'ADD_CARD', payload });
-export const updateSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
+export const addColumn = (payload) => ({ type: "ADD_COLUMN", payload });
+export const addCard = (payload) => ({ type: "ADD_CARD", payload });
+export const updateSearchString = (payload) => ({
+  type: "UPDATE_SEARCHSTRING",
+  payload,
+});
 
 const reducer = (state, action) => {
   switch (action.type) {
