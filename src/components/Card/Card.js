@@ -1,9 +1,23 @@
+import { useDispatch } from 'react-redux';
+import { toggleCardFavourite } from '../../Redux/Store';
 import styles from './Card.module.scss';
+import clsx from 'clsx';
 
-const Card = props => {
-    return (
-        <li className={styles.card}>{props.title}</li>
-    );
+const Card = props =>{
+  const dispatch = useDispatch();
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(toggleCardFavourite(props.id));
+  };
+
+
+  return(
+    <li className={styles.card}>
+      {props.title}
+      <button className={clsx(styles.button, props.isFavourite && styles.isActive)} onClick={handleClick}>
+        <i className={'fa fa-star-o'} />
+      </button>
+    </li>
+  );
 };
-
 export default Card;
