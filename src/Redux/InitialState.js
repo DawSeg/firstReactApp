@@ -30,6 +30,13 @@ const initialState = {
       id: '3',
       title: 'Games',
       icon: 'gamepad',
+    },
+
+    {
+      listId: '2',
+      id: '4',
+      title: 'test',
+      icon: 'trash',
     }
   ],
 

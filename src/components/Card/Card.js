@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 const Card = props =>{
   const dispatch = useDispatch();
-  const handleClick = (e) => {
+  const clickHandler = (e) => {
     e.preventDefault();
     dispatch(toggleCardFavourite(props.id));
   };
@@ -14,7 +14,7 @@ const Card = props =>{
   return(
     <li className={styles.card}>
       {props.title}
-      <button className={clsx(styles.button, props.isFavourite && styles.isActive)} onClick={handleClick}>
+      <button className={clsx(styles.button, props.isFavourite && styles.isActive)} onClick={clickHandler}>
         <i className={'fa fa-star-o'} />
       </button>
     </li>
