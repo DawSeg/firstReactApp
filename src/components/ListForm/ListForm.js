@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addList } from '../../Redux/Store';
+import { addList } from '../../Redux/ListsRedux';
 import TextInput from '../TextInput/TextInput';
 import styles from './ListForm.module.scss';
 import Button
